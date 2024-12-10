@@ -16,11 +16,11 @@ enum Theme: String, CaseIterable {
     func color(_ scheme: ColorScheme) -> Color {
         switch self {
         case .systemDefault:
-            return scheme == .dark ? Color("Moon") : Color("Sun")
+            return scheme == .dark ? .moon : .sun
         case .light:
-            return Color("Sun")
+            return .sun
         case .dark:
-            return Color("Moon")
+            return .moon
         }
     }
     
