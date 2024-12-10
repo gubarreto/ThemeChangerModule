@@ -1,19 +1,11 @@
 
 import SwiftUI
 
-struct ConfigScreen: View {
-    var body: some View {
-        VStack {
-            Text("Config")
-        }
-    }
-}
-
 #Preview {
-    ConfigScreen()
+    ConfigViewModule()
 }
 
-struct ContentView: View {
+struct ConfigViewModule: View {
     /// View Properties
     @State private var changeTheme: Bool = false
     @Environment(\.colorScheme) private var scheme
