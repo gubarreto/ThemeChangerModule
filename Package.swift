@@ -16,6 +16,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ThemeChangerModule"),
+            name: "ThemeChangerModule",
+            resources: [
+                .process("Assets.xcassets")
+            ]
+        )
     ]
 )
