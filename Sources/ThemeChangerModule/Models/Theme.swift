@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Bundle {
+public extension Bundle {
     static var module: Bundle {
         return Bundle(for: BundleToken.self)
     }
@@ -16,19 +16,36 @@ extension Bundle {
     private class BundleToken {}
 }
 
-enum Theme: String, CaseIterable {
+public extension Color {
+    static let themeBG = Color("ThemeBG", bundle: Bundle.module)
+    static let sun = Color("Sun", bundle: Bundle.module)
+    static let moon = Color("Moon", bundle: Bundle.module)
+}
+
+public enum Theme: String, CaseIterable {
     case systemDefault = "Default"
     case light = "Light"
     case dark = "Dark"
     
+    func colorCircle(_ scheme: ColorScheme) -> Color {
+        switch self {
+        case .systemDefault:
+            return scheme == .dark ? .purple : .orange
+        case .light:
+            return .orange
+        case .dark:
+            return .purple
+        }
+    }
+    
     func color(_ scheme: ColorScheme) -> Color {
         switch self {
         case .systemDefault:
-            return scheme == .dark ? Color("Moon", bundle: Bundle.module) : Color("Sun", bundle: Bundle.module)
+            return scheme == .dark ? .gray : .white
         case .light:
-            return Color("Sun", bundle: Bundle.module)
+            return .white
         case .dark:
-            return Color("Moon", bundle: Bundle.module)
+            return .gray
         }
     }
     

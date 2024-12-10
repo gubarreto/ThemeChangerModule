@@ -22,7 +22,7 @@ public struct ThemeChangeView: View {
     public var body: some View {
         VStack(spacing: 15) {
             Circle()
-                .fill(userTheme.color(scheme).gradient)
+                .fill(userTheme.colorCircle(scheme).gradient)
                 .frame(width: 150, height: 150)
                 .mask {
                     /// Inverted Mask
@@ -51,7 +51,7 @@ public struct ThemeChangeView: View {
                             ZStack {
                                 if userTheme == theme {
                                     Capsule()
-                                        .fill(Color("ThemeBG", bundle: Bundle.module))
+                                        .fill(Color.accentColor)
                                         .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
                                 }
                             }
@@ -70,7 +70,7 @@ public struct ThemeChangeView: View {
         /// Max Height = 410
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .frame(height: 410)
-        .background(Color("ThemeBG", bundle: Bundle.module))
+        .background(userTheme.color(scheme))
         .clipShape(.rect(cornerRadius: 30))
         .padding(.horizontal, 15)
         .environment(\.colorScheme, scheme)
