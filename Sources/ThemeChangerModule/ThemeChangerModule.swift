@@ -1,16 +1,13 @@
 
 import SwiftUI
 
-#Preview {
-    ConfigViewModule()
-}
 
-struct ConfigViewModule: View {
+public struct ConfigViewModule: View {
     /// View Properties
     @State private var changeTheme: Bool = false
     @Environment(\.colorScheme) private var scheme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
-    var body: some View {
+    public var body: some View {
         NavigationViewStack {
             List {
                 Section("Appearance") {
@@ -31,3 +28,6 @@ struct ConfigViewModule: View {
     }
 }
 
+#Preview {
+    ConfigViewModule()
+}

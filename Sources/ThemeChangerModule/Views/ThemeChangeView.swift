@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThemeChangeView: View {
+public struct ThemeChangeView: View {
     var scheme: ColorScheme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     /// For Sliding Effect
@@ -19,7 +19,7 @@ struct ThemeChangeView: View {
         let isDark = scheme == .dark
         self._circleOffset = .init(initialValue: CGSize(width: isDark ? 30 : 150, height: isDark ? -25 : -150))
     }
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 15) {
             Circle()
                 .fill(userTheme.color(scheme).gradient)
