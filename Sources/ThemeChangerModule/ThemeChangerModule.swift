@@ -11,7 +11,7 @@ struct ConfigViewModule: View {
     @Environment(\.colorScheme) private var scheme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     var body: some View {
-        NavigationStack {
+        NavigationViewStack {
             List {
                 Section("Appearance") {
                     Button("Change Theme") {
