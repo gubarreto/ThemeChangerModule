@@ -7,6 +7,7 @@ public struct ConfigViewModule: View {
     @State private var changeTheme: Bool = false
     @Environment(\.colorScheme) private var scheme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
+    public init() {}
     public var body: some View {
         NavigationViewStack {
             List {
